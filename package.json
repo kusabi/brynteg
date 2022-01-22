@@ -1,0 +1,29 @@
+{
+    "name": "@brynteg/root",
+    "description": "An RPG made in Javascript",
+    "license": "MIT",
+    "private": true,
+    "workspaces": {
+        "packages": [
+            "engine",
+            "examples"
+        ]
+    },
+    "scripts": {
+        "lint": "ultra -r lint",
+        "lint:engine": "yarn workspace @brynteg/engine lint",
+        "lint:fix": "ultra -r lint:fix",
+        "test": "ultra -r test",
+        "test:engine": "yarn workspace @brynteg/engine test",
+        "start": "yarn workspace @brynteg/examples start"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.16.5",
+        "@babel/eslint-parser": "^7.16.5",
+        "eslint": "^8.5.0",
+        "eslint-plugin-html": "^6.2.0",
+        "eslint-plugin-jest": "^25.3.0",
+        "typescript": "^4.5.4",
+        "ultra-runner": "^3.10.5"
+    }
+}
