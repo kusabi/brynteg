@@ -64,16 +64,6 @@ export default class Rectangle {
     }
 
     /**
-     * Set the bottom-left vector
-     *
-     * @param {Vector} vector
-     */
-    set bl(vector) {
-        this.left = vector.x;
-        this.bottom = vector.y;
-    }
-
-    /**
      * Get the bottom of the rectangle
      *
      * @return {number}
@@ -98,16 +88,6 @@ export default class Rectangle {
      */
     get br() {
         return new Vector(this.right, this.bottom);
-    }
-
-    /**
-     * Set the bottom-right vector
-     *
-     * @param {Vector} vector
-     */
-    set br(vector) {
-        this.right = vector.x;
-        this.bottom = vector.y;
     }
 
     /**
@@ -171,7 +151,8 @@ export default class Rectangle {
      * @param {Vector} vector
      */
     set position(vector) {
-        this.bl = vector;
+        this.x = vector.x;
+        this.y = vector.y;
     }
 
     /**
@@ -221,16 +202,6 @@ export default class Rectangle {
     }
 
     /**
-     * Set the top-left vector
-     *
-     * @param {Vector} vector
-     */
-    set tl(vector) {
-        this.left = vector.x;
-        this.top = vector.y;
-    }
-
-    /**
      * Get the top of the rectangle
      *
      * @return {number}
@@ -255,16 +226,6 @@ export default class Rectangle {
      */
     get tr() {
         return new Vector(this.right, this.top);
-    }
-
-    /**
-     * Set the top-right vector
-     *
-     * @param {Vector} vector
-     */
-    set tr(vector) {
-        this.right = vector.x;
-        this.top = vector.y;
     }
 
     /**

@@ -103,59 +103,6 @@ describe('Magic accessors', () => {
         expect(r.bottom).toBe(400)
     });
 
-    test('Set top left', () => {
-        let r = new Rectangle(10, 20, 30, 40)
-        expect(r.x).toBe(10);
-        expect(r.y).toBe(20);
-        expect(r.width).toBe(30);
-        expect(r.height).toBe(40);
-        r.tl = new Vector(200, 250);
-        expect(r.x).toBe(200);
-        expect(r.y).toBe(210);
-        expect(r.width).toBe(30);
-        expect(r.height).toBe(40);
-    });
-
-    test('Set top right', () => {
-        let r = new Rectangle(10, 20, 30, 40)
-        expect(r.x).toBe(10);
-        expect(r.y).toBe(20);
-        expect(r.width).toBe(30);
-        expect(r.height).toBe(40);
-        r.tr = new Vector(200, 250);
-        expect(r.x).toBe(170);
-        expect(r.y).toBe(210);
-        expect(r.width).toBe(30);
-        expect(r.height).toBe(40);
-    });
-
-    test('Set bottom left', () => {
-        let r = new Rectangle(10, 20, 30, 40)
-        expect(r.x).toBe(10);
-        expect(r.y).toBe(20);
-        expect(r.width).toBe(30);
-        expect(r.height).toBe(40);
-        r.bl = new Vector(200, 250);
-        expect(r.x).toBe(200);
-        expect(r.y).toBe(250);
-        expect(r.width).toBe(30);
-        expect(r.height).toBe(40);
-    });
-
-    test('Set bottom right', () => {
-        let r = new Rectangle(10, 20, 30, 40)
-        expect(r.x).toBe(10);
-        expect(r.y).toBe(20);
-        expect(r.width).toBe(30);
-        expect(r.height).toBe(40);
-        r.br = new Vector(200, 250);
-        expect(r.x).toBe(170);
-        expect(r.y).toBe(250);
-        expect(r.width).toBe(30);
-        expect(r.height).toBe(40);
-    });
-
-
     test('Set center', () => {
         let r = new Rectangle(10, 20, 30, 40)
         expect(r.x).toBe(10);
