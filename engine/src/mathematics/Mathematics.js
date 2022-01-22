@@ -417,13 +417,13 @@ export default class Mathematics {
     /**
      * Returns the value of a base expression taken to a specified power.
      *
-     * @param {number} x The base value of the expression.
-     * @param {number} y The exponent value of the expression.
+     * @param {number} value The base value of the expression.
+     * @param {number} exponent The exponent value of the expression.
      *
      * @returns {number}
      */
-    static pow(x, y) {
-        return Math.pow(x, y)
+    static pow(value, exponent) {
+        return Math.pow(value, exponent)
     }
 
     /**

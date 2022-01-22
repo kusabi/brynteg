@@ -114,12 +114,12 @@ export default class Vector {
      * @return {Vector}
      */
     get normalized() {
-        const l = this.length;
-        return new Vector(this.x / l, this.y / l);
+        const length = this.length;
+        return new Vector(this.x / length, this.y / length);
     }
 
     /**
-     * Calculate the dot product of another vector
+     * Calculate the angle in degrees between two vectors
      *
      * @param {Vector} a
      * @param {Vector} b
@@ -127,17 +127,11 @@ export default class Vector {
      * @return {number}
      */
     static angle(a, b) {
-
-        a = a.copy;
-        b = b.copy;
-
         if (a.length === 0 || b.length === 0) {
             return 0;
         }
-
         const radians = Mathematics.atan2(a.y, a.x) - Mathematics.atan2(b.y, b.x);
-        const degrees = radians * Mathematics.RAD2DEG;
-        return Mathematics.wrap(degrees, 0, 359);
+        return Mathematics.wrap(radians * Mathematics.RAD2DEG, 0, 359);
     }
 
     /**
@@ -154,14 +148,11 @@ export default class Vector {
         let x = parseFloat(Mathematics.sin(radians).toFixed(10));
         let y = parseFloat(Mathematics.cos(radians).toFixed(10));
 
-        x = x === 0 ? 0 : x;
-        y = y === 0 ? 0 : y;
-
-        return new Vector(x, y).scale(length);
+        return new Vector(x === 0 ? 0 : x, y === 0 ? 0 : y).scale(length);
     }
 
     /**
-     * Calculate the dot product of another vector
+     * Calculate the dot product between two vectors
      *
      * @param {Vector} a
      * @param {Vector} b
