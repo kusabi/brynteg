@@ -1,7 +1,7 @@
 import SceneManager from "./SceneManager";
 import {Renderer} from "../renderer";
 import {Input} from "../input";
-import Time from "./Time";
+import {Time} from "../time";
 import Element from "./Element";
 
 export default class Game extends Element {
@@ -18,7 +18,7 @@ export default class Game extends Element {
      * @param {number} time
      */
     loop(time) {
-        Time.tick(time / 1000)
+        Time.tick(time)
         this.update(Time.delta);
         this.render();
     }
