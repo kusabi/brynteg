@@ -30,24 +30,6 @@ export default class KeyboardInput extends Input {
         return this._a
     }
 
-    get all() {
-        return [this.a, this.b, this.x, this.y, this.up, this.down, this.left, this.right];
-    }
-
-    /**
-     * Get any button that is currently pressed.
-     *
-     * @return {Button|null}
-     */
-    get any() {
-        for (const button of this.all) {
-            if (button.isDown) {
-                return button;
-            }
-        }
-        return null;
-    }
-
     get b() {
         return this._b;
     }

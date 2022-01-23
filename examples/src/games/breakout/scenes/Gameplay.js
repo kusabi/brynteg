@@ -18,38 +18,38 @@ export default class Gameplay extends Scene {
     render() {
         for (const brick of this.bricks) {
             if (brick.alive) {
-                Renderer.instance.drawRectangle(brick);
+                Renderer.drawRectangle(brick);
             }
         }
-        Renderer.instance.drawRectangle(this.player);
-        Renderer.instance.drawRectangle(this.ball);
+        Renderer.drawRectangle(this.player);
+        Renderer.drawRectangle(this.ball);
     }
 
     update() {
         // Player movement
-        this.player.x += Input.instance.horizontal * 500 * Time.delta;
-        if (this.player.left < Renderer.instance.window.left) {
-            this.player.left = Renderer.instance.window.left
+        this.player.x += Input.horizontal * 500 * Time.delta;
+        if (this.player.left < Renderer.window.left) {
+            this.player.left = Renderer.window.left
         }
-        if (this.player.right > Renderer.instance.window.right) {
-            this.player.right = Renderer.instance.window.right
+        if (this.player.right > Renderer.window.right) {
+            this.player.right = Renderer.window.right
         }
 
         // Ball movement
         this.ball.translate(this.ball.velocity.copy.scale(Time.delta));
-        if (this.ball.left < Renderer.instance.window.left) {
-            this.ball.left = Renderer.instance.window.left;
+        if (this.ball.left < Renderer.window.left) {
+            this.ball.left = Renderer.window.left;
             this.ball.velocity.x *= -1;
         }
-        if (this.ball.right > Renderer.instance.window.right) {
-            this.ball.right = Renderer.instance.window.right
+        if (this.ball.right > Renderer.window.right) {
+            this.ball.right = Renderer.window.right
             this.ball.velocity.x *= -1;
         }
-        if (this.ball.top > Renderer.instance.window.top) {
-            this.ball.top = Renderer.instance.window.top
+        if (this.ball.top > Renderer.window.top) {
+            this.ball.top = Renderer.window.top
             this.ball.velocity.y *= -1;
         }
-        if (this.ball.bottom < Renderer.instance.window.bottom) {
+        if (this.ball.bottom < Renderer.window.bottom) {
             this.reset();
         }
 
@@ -90,15 +90,15 @@ export default class Gameplay extends Scene {
         const paddingSides = 70;
         const padding = 30;
         const gap = 5;
-        const spaceWidth = Renderer.instance.window.width - (paddingSides * 2);
-        const spaceHeight = (Renderer.instance.window.height / 2) - padding;
+        const spaceWidth = Renderer.window.width - (paddingSides * 2);
+        const spaceHeight = (Renderer.window.height / 2) - padding;
         const brickWidth = (spaceWidth / columns) - gap;
         const brickHeight = (spaceHeight / rows) - gap;
         for (let x = 0; x < columns; x++) {
             for (let y = 0; y < rows; y++) {
                 this.bricks.push(new Brick(
                     paddingSides + (x * brickWidth) + (x * gap),
-                    Renderer.instance.window.height - (padding + (y * brickHeight) + (y * gap)),
+                    Renderer.window.height - (padding + (y * brickHeight) + (y * gap)),
                     brickWidth,
                     brickHeight
                 ))
@@ -106,15 +106,15 @@ export default class Gameplay extends Scene {
         }
 
         // Setup the player
-        const playerWidth = Renderer.instance.window.width - 100;
+        const playerWidth = Renderer.window.width - 100;
         const playerHeight = 10;
-        this.player = new Player(Renderer.instance.window.center.x - (playerWidth / 2), 10 + playerHeight, playerWidth, playerHeight);
+        this.player = new Player(Renderer.window.center.x - (playerWidth / 2), 10 + playerHeight, playerWidth, playerHeight);
 
         // Setup the ball
         const ballSize = 10;
         this.ball = new Ball(
-            Renderer.instance.window.center.x - (ballSize / 2),
-            (Renderer.instance.window.height / 4) + (ballSize / 2),
+            Renderer.window.center.x - (ballSize / 2),
+            (Renderer.window.height / 4) + (ballSize / 2),
             ballSize,
             ballSize
         );

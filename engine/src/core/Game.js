@@ -8,8 +8,8 @@ export default class Game extends Element {
 
     constructor(renderer, input) {
         super();
-        Renderer.setRenderer(renderer);
-        Input.setInput(input);
+        Renderer.instance = renderer;
+        Input.instance = input;
     }
 
     /**
@@ -29,7 +29,7 @@ export default class Game extends Element {
      * @see Element.renderd
      */
     render() {
-        Renderer.instance.clearScreen();
+        Renderer.clearScreen();
         // Renderer.instance.drawRectangle(Renderer.instance.window, {
         //     fillColor: 'rgba(0, 0, 0, 0.6)'
         // });
@@ -53,6 +53,6 @@ export default class Game extends Element {
      */
     update() {
         SceneManager.instance.update();
-        Input.instance.update()
+        Input.update()
     }
 }

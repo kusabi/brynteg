@@ -26,21 +26,21 @@ export default class Menu extends Element {
             this.cursorVisible = !this.cursorVisible;
         }
 
-        if (Input.instance.up.justDown) {
+        if (Input.up.justDown) {
             this.selected++;
             if (this.selected >= this.items.length) {
                 this.selected = 0;
             }
         }
 
-        if (Input.instance.down.justDown) {
+        if (Input.down.justDown) {
             this.selected--;
             if (this.selected < 0) {
                 this.selected = this.items.length - 1;
             }
         }
 
-        if (Input.instance.a.justDown) {
+        if (Input.a.justDown) {
             this.items[this.selected].callback();
         }
     }
@@ -50,12 +50,12 @@ export default class Menu extends Element {
         const selected = this.selected.toString();
         for (const index in this.items) {
             if (selected === index && this.cursorVisible) {
-                Renderer.instance.drawText('>', pos.copy.translate(new Vector(-40, 0)), {
+                Renderer.drawText('>', pos.copy.translate(new Vector(-40, 0)), {
                     fontSize: '3rem',
                     fontFamily: 'Courier'
                 });
             }
-            Renderer.instance.drawText(this.items[index].text, pos, {
+            Renderer.drawText(this.items[index].text, pos, {
                 fontSize: '3rem',
                 fontFamily: 'Courier'
             });

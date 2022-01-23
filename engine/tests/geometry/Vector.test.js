@@ -108,6 +108,10 @@ describe('Static standard vectors', () => {
         expect(Vector.right.x).toBe(1);
         expect(Vector.right.y).toBe(0);
     });
+
+    test('Vector.random returns a random unit length vector', () => {
+        expect(Vector.random.length).toBeCloseTo(1, 10);
+    });
 });
 
 describe('Magic Access', () => {

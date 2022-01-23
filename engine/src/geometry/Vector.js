@@ -55,6 +55,15 @@ export default class Vector {
     }
 
     /**
+     * Create a Vector that has random values
+     *
+     * @return {Vector}
+     */
+    static get random() {
+        return new Vector(Mathematics.random(-1, 1), Mathematics.random(-1, 1)).normalized;
+    }
+
+    /**
      * Create a Vector that points right
      *
      * @return {Vector}

@@ -1,6 +1,13 @@
-import Point from "./Vector";
+import Vector from "./Vector";
 
 export default class Circle {
+
+    /**
+     * The position of the circle
+     *
+     * @type {Vector}
+     */
+    position;
 
     /**
      * The radius of the circle
@@ -10,20 +17,6 @@ export default class Circle {
     radius;
 
     /**
-     * The x position of the circle
-     *
-     * @type {number}
-     */
-    x;
-
-    /**
-     * The y position of the circle
-     *
-     * @type {number}
-     */
-    y;
-
-    /**
      * The constructor
      *
      * @param {number} x
@@ -31,8 +24,7 @@ export default class Circle {
      * @param {number} radius
      */
     constructor(x, y, radius) {
-        this.x = x;
-        this.y = y;
+        this.position = new Vector(x, y);
         this.radius = radius;
     }
 
@@ -145,15 +137,6 @@ export default class Circle {
     }
 
     /**
-     * Get the position as a Vector
-     *
-     * @return {Point}
-     */
-    get position() {
-        return new Point(this.x, this.y);
-    }
-
-    /**
      * Get the right of the circle
      *
      * @return {number}
@@ -205,6 +188,42 @@ export default class Circle {
      */
     set width(width) {
         this.radius = width / 2;
+    }
+
+    /**
+     * Get the x position
+     *
+     * @return {number}
+     */
+    get x() {
+        return this.position.x;
+    }
+
+    /**
+     * Get the x position
+     *
+     * @param {number} x
+     */
+    set x(x) {
+        this.position.x = x;
+    }
+
+    /**
+     * Get the y position
+     *
+     * @return {number}
+     */
+    get y() {
+        return this.position.y;
+    }
+
+    /**
+     * Get the y position
+     *
+     * @param {number} y
+     */
+    set y(y) {
+        this.position.y = y;
     }
 
     /**

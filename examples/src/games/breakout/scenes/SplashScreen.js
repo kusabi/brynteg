@@ -12,9 +12,9 @@ export default class SplashScreen extends Scene {
     }
     render() {
 
-        const center = Renderer.instance.window.center;
+        const center = Renderer.window.center;
 
-        Renderer.instance.drawText("breakout.js", center, {
+        Renderer.drawText("breakout.js", center, {
             fillColor: 'white',
             fontSize: '3rem',
             textAlign: 'center',
@@ -22,7 +22,7 @@ export default class SplashScreen extends Scene {
         });
 
         if (this.underscoreVisible === true) {
-            Renderer.instance.drawRectangle(new Rectangle(center.x + 160, center.y, 20, 2), {
+            Renderer.drawRectangle(new Rectangle(center.x + 160, center.y, 20, 2), {
                 fill: true,
                 fillColor: 'white',
                 strokeColor: 'white',
@@ -36,7 +36,7 @@ export default class SplashScreen extends Scene {
             this.underscoreVisible = !this.underscoreVisible;
         }
 
-        if (Input.instance.any && Input.instance.any.justDown) {
+        if (Input.any && Input.any.justDown) {
             SceneManager.instance.loadScene(new Gameplay())
         }
     }

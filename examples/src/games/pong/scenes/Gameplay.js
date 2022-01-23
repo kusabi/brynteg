@@ -16,8 +16,8 @@ export default class Gameplay extends Scene {
         this.specialCounter = this.specialWait;
         this.specialCounterInUse = 0;
         this.player1 = new Baton(10, 10, batonWidth, batonHeight);
-        this.player2 = new Baton(Renderer.instance.window.right - 10 - batonWidth, 10, batonWidth, batonHeight);
-        this.ball = new Ball(Renderer.instance.window.center.x, Renderer.instance.window.center.y, ballRadius);
+        this.player2 = new Baton(Renderer.window.right - 10 - batonWidth, 10, batonWidth, batonHeight);
+        this.ball = new Ball(Renderer.window.center.x, Renderer.window.center.y, ballRadius);
 
         this.resetMatch();
 
@@ -25,22 +25,22 @@ export default class Gameplay extends Scene {
 
     render() {
         // Get the renderer window
-        const window = Renderer.instance.window;
+        const window = Renderer.window;
 
-        Renderer.instance.drawText(this.player1.score, new Vector(30, 30));
-        Renderer.instance.drawText(this.player2.score, new Vector(window.right - 30, 30));
+        Renderer.drawText(this.player1.score, new Vector(30, 30));
+        Renderer.drawText(this.player2.score, new Vector(window.right - 30, 30));
 
         const specialRect = this.specialRectangle();
         if (specialRect) {
-            Renderer.instance.drawRectangle(specialRect, {
+            Renderer.drawRectangle(specialRect, {
                 fillColor: '#484818'
             });
         }
-        Renderer.instance.drawRectangle(this.player1);
+        Renderer.drawRectangle(this.player1);
 
 
-        Renderer.instance.drawRectangle(this.player2);
-        Renderer.instance.drawRectangle(this.ball);
+        Renderer.drawRectangle(this.player2);
+        Renderer.drawRectangle(this.ball);
 
 
     }
@@ -48,7 +48,7 @@ export default class Gameplay extends Scene {
     update() {
 
         // Get the renderer window
-        const window = Renderer.instance.window;
+        const window = Renderer.window;
 
         // Update the ball
         this.ball.translate(this.ball.velocity.copy.scale(Time.delta));
@@ -88,11 +88,11 @@ export default class Gameplay extends Scene {
         }
 
         // Move player 1 based on input
-        this.player1.y += Input.instance.vertical * this.player1.speed;
+        this.player1.y += Input.vertical * this.player1.speed;
 
         // Player 1 special move...
         this.specialCounter++;
-        if (Input.instance.a.justDown && this.specialCounter >= this.specialWait) {
+        if (Input.a.justDown && this.specialCounter >= this.specialWait) {
             this.specialCounter = 0;
             this.specialCounterInUse = 1;
         }
@@ -128,13 +128,13 @@ export default class Gameplay extends Scene {
 
     resetMatch() {
         this.player1.left = 10;
-        this.player1.top = Renderer.instance.window.center.y - (this.player1.height / 2);
+        this.player1.top = Renderer.window.center.y - (this.player1.height / 2);
 
-        this.player2.right = Renderer.instance.window.right - 10;
-        this.player2.top = Renderer.instance.window.center.y - (this.player2.height / 2);
+        this.player2.right = Renderer.window.right - 10;
+        this.player2.top = Renderer.window.center.y - (this.player2.height / 2);
 
-        this.ball.top = Renderer.instance.window.center.y - (this.ball.height / 2);
-        this.ball.left = Renderer.instance.window.center.x - (this.ball.width / 2);
+        this.ball.top = Renderer.window.center.y - (this.ball.height / 2);
+        this.ball.left = Renderer.window.center.x - (this.ball.width / 2);
         this.ball.velocity = new Vector(
             Math.random() * 40 - 20,
             Math.random() * 10 - 5,

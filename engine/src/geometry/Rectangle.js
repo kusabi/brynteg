@@ -3,32 +3,17 @@ import Vector from "./Vector";
 export default class Rectangle {
 
     /**
-     * The height of the rectangle
+     * The position vector
      *
-     * @type {number}
+     * @type {Vector}
      */
-    height;
-
+    position;
     /**
-     * The width of the rectangle
+     * The size vector
      *
-     * @type {number}
+     * @type {Vector}
      */
-    width;
-
-    /**
-     * The x position
-     *
-     * @type {number}
-     */
-    x;
-
-    /**
-     * The y position
-     *
-     * @type {number}
-     */
-    y;
+    size;
 
     /**
      * The constructor
@@ -39,10 +24,8 @@ export default class Rectangle {
      * @param {number} height
      */
     constructor(x, y, width, height) {
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
+        this.position = new Vector(x, y);
+        this.size = new Vector(width, height);
     }
 
     /**
@@ -119,6 +102,24 @@ export default class Rectangle {
     }
 
     /**
+     * Get the height
+     *
+     * @returns {number}
+     */
+    get height() {
+        return this.size.y;
+    }
+
+    /**
+     * Set the height
+     *
+     * @param {number} height
+     */
+    set height(height) {
+        this.size.y = height;
+    }
+
+    /**
      * Get the left of the rectangle
      *
      * @return {number}
@@ -137,25 +138,6 @@ export default class Rectangle {
     }
 
     /**
-     * Get the position as a Vector
-     *
-     * @return {Vector}
-     */
-    get position() {
-        return new Vector(this.x, this.y);
-    }
-
-    /**
-     * Set the position vector
-     *
-     * @param {Vector} vector
-     */
-    set position(vector) {
-        this.x = vector.x;
-        this.y = vector.y;
-    }
-
-    /**
      * Get the right of the rectangle
      *
      * @return {number}
@@ -171,25 +153,6 @@ export default class Rectangle {
      */
     set right(right) {
         this.x = right - this.width;
-    }
-
-    /**
-     * Get the size as a Vector
-     *
-     * @return {Vector}
-     */
-    get size() {
-        return new Vector(this.width, this.height);
-    }
-
-    /**
-     * Set the size as a Vector
-     *
-     * @param {Vector} vector
-     */
-    set size(vector) {
-        this.width = vector.x;
-        this.height = vector.y;
     }
 
     /**
@@ -226,6 +189,60 @@ export default class Rectangle {
      */
     get tr() {
         return new Vector(this.right, this.top);
+    }
+
+    /**
+     * Get the width
+     *
+     * @returns {number}
+     */
+    get width() {
+        return this.size.x;
+    }
+
+    /**
+     * Set the width
+     *
+     * @param {number} width
+     */
+    set width(width) {
+        this.size.x = width;
+    }
+
+    /**
+     * Get the x position
+     *
+     * @returns {number}
+     */
+    get x() {
+        return this.position.x;
+    }
+
+    /**
+     * Set the x position
+     *
+     * @param {number} x
+     */
+    set x(x) {
+        this.position.x = x;
+    }
+
+    /**
+     * Get the y position
+     *
+     * @returns {number}
+     */
+    get y() {
+        return this.position.y;
+    }
+
+    /**
+     * Set the y position
+     *
+     * @param {number} y
+     */
+    set y(y) {
+        this.position.y = y;
     }
 
     /**

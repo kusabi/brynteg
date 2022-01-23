@@ -33,16 +33,16 @@ export default class SplashScreen extends Scene {
 
     render() {
         for (const circle of this.circles) {
-            Renderer.instance.drawCircle(circle, {fillColor: '#ccc', borderColor: '#fff'});
+            Renderer.drawCircle(circle, {fillColor: '#ccc', borderColor: '#fff'});
         }
-        Renderer.instance.drawCircle(new Circle(this.moonPosition.x, this.moonPosition.y, 70), {fillColor: '#ffffff', strokeColor: '#fff'});
-        Renderer.instance.drawCircle(new Circle(this.moonPosition.x, this.moonPosition.y, 65), {fillColor: '#efefef', strokeColor: '#efefef'});
-        Renderer.instance.drawCircle(new Circle(this.moonPosition.x, this.moonPosition.y, 60), {fillColor: '#e0e0e0', strokeColor: '#eee'});
+        Renderer.drawCircle(new Circle(this.moonPosition.x, this.moonPosition.y, 70), {fillColor: '#ffffff', strokeColor: '#fff'});
+        Renderer.drawCircle(new Circle(this.moonPosition.x, this.moonPosition.y, 65), {fillColor: '#efefef', strokeColor: '#efefef'});
+        Renderer.drawCircle(new Circle(this.moonPosition.x, this.moonPosition.y, 60), {fillColor: '#e0e0e0', strokeColor: '#eee'});
 
-        Renderer.instance.drawText("The Legend of Zelda: A Link to the Past", new Vector(400, 500));
+        Renderer.drawText("The Legend of Zelda: A Link to the Past", new Vector(400, 500));
     }
 
     update() {
-        this.moonPosition.translate(Input.instance.direction.scale(Time.delta * 500))
+        this.moonPosition.translate(Input.direction.scale(Time.delta * 500))
     }
 }

@@ -15,30 +15,30 @@ export default class RectangleOverlap extends Scene {
     }
 
     render() {
-        Renderer.instance.drawRectangle(this.a, {fill: true, fillColor: '#2d2', strokeColor: '#2d2'});
-        Renderer.instance.drawRectangle(this.b, {fill: true, fillColor: '#22d', strokeColor: '#22d'});
-        Renderer.instance.drawRectangle(this.c, {fill: true, fillColor: '#d22', strokeColor: '#d22'});
+        Renderer.drawRectangle(this.a, {fill: true, fillColor: '#2d2', strokeColor: '#2d2'});
+        Renderer.drawRectangle(this.b, {fill: true, fillColor: '#22d', strokeColor: '#22d'});
+        Renderer.drawRectangle(this.c, {fill: true, fillColor: '#d22', strokeColor: '#d22'});
 
         if (this.a.overlaps(this.b)) {
             const o = this.a.overlap(this.b);
-            Renderer.instance.drawRectangle(o, {fill: true, fillColor: '#dd2', strokeColor: '#dd2'});
+            Renderer.drawRectangle(o, {fill: true, fillColor: '#dd2', strokeColor: '#dd2'});
         }
 
         if (this.a.overlaps(this.c)) {
             const o = this.a.overlap(this.c);
-            Renderer.instance.drawRectangle(o, {fill: true, fillColor: '#dd2', strokeColor: '#dd2'});
+            Renderer.drawRectangle(o, {fill: true, fillColor: '#dd2', strokeColor: '#dd2'});
         }
 
         if (this.b.overlaps(this.c)) {
             const o = this.b.overlap(this.c);
-            Renderer.instance.drawRectangle(o, {fill: true, fillColor: '#dd2', strokeColor: '#dd2'});
+            Renderer.drawRectangle(o, {fill: true, fillColor: '#dd2', strokeColor: '#dd2'});
         }
 
         if (this.a.overlaps(this.b)) {
             const oa = this.a.overlap(this.b);
             if (this.c.overlaps(oa)) {
                 const o = this.c.overlap(oa);
-                Renderer.instance.drawRectangle(o, {fill: true, fillColor: '#2dd', strokeColor: '#2dd'});
+                Renderer.drawRectangle(o, {fill: true, fillColor: '#2dd', strokeColor: '#2dd'});
             }
         }
     }
